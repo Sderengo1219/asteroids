@@ -7,6 +7,7 @@ from circleshape import *
 from player import *
 from asteroidfield import *
 from asteroid import *
+from sys import *
 
 clock = pygame.time.Clock()
 dt = 0
@@ -31,6 +32,12 @@ def main():
         
         for each in drawable:
             each.draw(screen)
+
+        for each in asteroids:
+            if each.does_collide(player) == True:
+                print("Game Over!")
+                exit()
+
 
         dt = clock.tick(60) / 1000
         updatable.update(dt)
