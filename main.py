@@ -40,6 +40,12 @@ def main():
             if each.does_collide(player) == True:
                 print("Game Over!")
                 exit()
+        
+        for each in asteroids:
+            for thing in shots:
+                if each.does_collide(thing) == True:
+                    each.split(asteroid_field)
+
 
 
         dt = clock.tick(60) / 1000
